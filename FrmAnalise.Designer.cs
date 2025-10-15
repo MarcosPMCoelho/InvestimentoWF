@@ -158,7 +158,7 @@
             this.ClientSize = new System.Drawing.Size(1329, 541);
             this.Controls.Add(this.dgAnalise);
             this.Name = "FrmAnalise";
-            this.Text = "FrmAnalise";
+            this.Text = "Análise";
             this.Load += new System.EventHandler(this.FrmAnalise_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgAnalise)).EndInit();
             this.ResumeLayout(false);

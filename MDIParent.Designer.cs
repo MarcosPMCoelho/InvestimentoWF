@@ -53,6 +53,7 @@
             this.informaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resultadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fechamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -228,7 +229,8 @@
             // 
             this.informaçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.analiseToolStripMenuItem,
-            this.resultadoToolStripMenuItem});
+            this.resultadoToolStripMenuItem,
+            this.fechamentoToolStripMenuItem});
             this.informaçõesToolStripMenuItem.Name = "informaçõesToolStripMenuItem";
             this.informaçõesToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
             this.informaçõesToolStripMenuItem.Text = "Informações";
@@ -246,6 +248,13 @@
             this.resultadoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.resultadoToolStripMenuItem.Text = "Resultado";
             this.resultadoToolStripMenuItem.Click += new System.EventHandler(this.resultadoToolStripMenuItem_Click);
+            // 
+            // fechamentoToolStripMenuItem
+            // 
+            this.fechamentoToolStripMenuItem.Name = "fechamentoToolStripMenuItem";
+            this.fechamentoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fechamentoToolStripMenuItem.Text = "Fechamento";
+            this.fechamentoToolStripMenuItem.Click += new System.EventHandler(this.fechamentoToolStripMenuItem_Click);
             // 
             // MDIParent
             // 
@@ -297,6 +306,7 @@
         private System.Windows.Forms.ToolStripMenuItem informaçõesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem analiseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resultadoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fechamentoToolStripMenuItem;
     }
 }
 

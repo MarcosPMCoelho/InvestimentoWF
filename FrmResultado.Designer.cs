@@ -50,7 +50,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dbResultado);
             this.Name = "FrmResultado";
-            this.Text = "FrmResultado";
+            this.Text = "Resultado";
             this.Load += new System.EventHandler(this.FrmResultado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dbResultado)).EndInit();
             this.ResumeLayout(false);

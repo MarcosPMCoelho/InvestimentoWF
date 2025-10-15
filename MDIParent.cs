@@ -135,5 +135,12 @@ namespace InvestWF
             frmResultado.MdiParent = this;
             frmResultado.Show();
         }
+
+        private void fechamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmFechamento frmFechamento = new FrmFechamento();
+            frmFechamento.MdiParent = this;
+            frmFechamento.Show();
+        }
     }
 }

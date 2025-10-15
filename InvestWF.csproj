@@ -53,6 +53,7 @@
     <Compile Include="Api\Analise.cs" />
     <Compile Include="Api\Config.cs" />
     <Compile Include="Api\Corretora.cs" />
+    <Compile Include="Api\Fechamento.cs" />
     <Compile Include="Api\Resultado.cs" />
     <Compile Include="Api\Seguranca.cs" />
     <Compile Include="Business\Variaveis.cs" />
@@ -61,6 +62,12 @@
     </Compile>
     <Compile Include="FrmAnalise.Designer.cs">
       <DependentUpon>FrmAnalise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFechamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFechamento.Designer.cs">
+      <DependentUpon>FrmFechamento.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -83,6 +90,7 @@
     <Compile Include="Model\Analise.cs" />
     <Compile Include="Model\Cadpapel.cs" />
     <Compile Include="Model\Corretora.cs" />
+    <Compile Include="Model\Fechamento.cs" />
     <Compile Include="Model\Meta.cs" />
     <Compile Include="Model\Resultado.cs" />
     <Compile Include="Model\RetSeguranca.cs" />
@@ -92,6 +100,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAnalise.resx">
       <DependentUpon>FrmAnalise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFechamento.resx">
+      <DependentUpon>FrmFechamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
