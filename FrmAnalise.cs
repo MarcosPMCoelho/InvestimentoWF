@@ -50,10 +50,20 @@ namespace InvestWF
                 if (dgAnalise.Columns[e.ColumnIndex].Name == "TotalAtual")
                 {
                     // Certifique-se de que você tem acesso às outras colunas (Quantidade e Preco)
-                    decimal valor_unit = Convert.ToDecimal(dgAnalise.Rows[e.RowIndex].Cells["valor_cotacao"].Value);
+                    decimal vl_unitario = Convert.ToDecimal(dgAnalise.Rows[e.RowIndex].Cells["valor_cotacao"].Value);
                     int qtd = Convert.ToInt32(dgAnalise.Rows[e.RowIndex].Cells["quantidade"].Value);
-                    e.Value = valor_unit * qtd;
+                    e.Value = vl_unitario * qtd;
                 }
+
+                if (dgAnalise.Columns[e.ColumnIndex].Name == "Resultado")
+                {
+                    // Certifique-se de que você tem acesso às outras colunas (Quantidade e Preco)
+                    decimal valor_unit = Convert.ToDecimal(dgAnalise.Rows[e.RowIndex].Cells["vl_unit"].Value);
+                    decimal valor_cotacao = Convert.ToDecimal(dgAnalise.Rows[e.RowIndex].Cells["valor_cotacao"].Value);
+                    int qtd = Convert.ToInt32(dgAnalise.Rows[e.RowIndex].Cells["quantidade"].Value);
+                    e.Value = (valor_cotacao - valor_unit ) * qtd;
+                }
+
             }
         }
     }

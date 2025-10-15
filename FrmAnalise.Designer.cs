@@ -30,16 +30,17 @@
         {
             this.dgAnalise = new System.Windows.Forms.DataGridView();
             this.papel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vl_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valor_cotacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataOperacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.minimoVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataCotacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.possibilidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Resultado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgAnalise)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,19 +52,20 @@
             this.dgAnalise.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgAnalise.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.papel,
-            this.pm,
             this.quantidade,
             this.vl_unit,
+            this.pm,
             this.valor_cotacao,
+            this.TotalAtual,
             this.dataOperacao,
             this.minimoVenda,
             this.dataCotacao,
             this.TotalCompra,
-            this.TotalAtual,
-            this.possibilidade});
-            this.dgAnalise.Location = new System.Drawing.Point(13, 13);
+            this.possibilidade,
+            this.Resultado});
+            this.dgAnalise.Location = new System.Drawing.Point(13, 12);
             this.dgAnalise.Name = "dgAnalise";
-            this.dgAnalise.Size = new System.Drawing.Size(775, 425);
+            this.dgAnalise.Size = new System.Drawing.Size(1304, 516);
             this.dgAnalise.TabIndex = 0;
             this.dgAnalise.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAnalise_CellContentClick);
             this.dgAnalise.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgAnalise_CellFormatting);
@@ -74,13 +76,6 @@
             this.papel.HeaderText = "Papel";
             this.papel.Name = "papel";
             this.papel.ReadOnly = true;
-            // 
-            // pm
-            // 
-            this.pm.DataPropertyName = "pm";
-            this.pm.HeaderText = "Preço Médio";
-            this.pm.Name = "pm";
-            this.pm.ReadOnly = true;
             // 
             // quantidade
             // 
@@ -96,12 +91,25 @@
             this.vl_unit.Name = "vl_unit";
             this.vl_unit.ReadOnly = true;
             // 
+            // pm
+            // 
+            this.pm.DataPropertyName = "pm";
+            this.pm.HeaderText = "Preço Médio";
+            this.pm.Name = "pm";
+            this.pm.ReadOnly = true;
+            // 
             // valor_cotacao
             // 
             this.valor_cotacao.DataPropertyName = "valor_cotacao";
             this.valor_cotacao.HeaderText = "Valor Cotação";
             this.valor_cotacao.Name = "valor_cotacao";
             this.valor_cotacao.ReadOnly = true;
+            // 
+            // TotalAtual
+            // 
+            this.TotalAtual.HeaderText = "Total Atual";
+            this.TotalAtual.Name = "TotalAtual";
+            this.TotalAtual.ReadOnly = true;
             // 
             // dataOperacao
             // 
@@ -130,12 +138,6 @@
             this.TotalCompra.Name = "TotalCompra";
             this.TotalCompra.ReadOnly = true;
             // 
-            // TotalAtual
-            // 
-            this.TotalAtual.HeaderText = "Total Atual";
-            this.TotalAtual.Name = "TotalAtual";
-            this.TotalAtual.ReadOnly = true;
-            // 
             // possibilidade
             // 
             this.possibilidade.DataPropertyName = "possibilidade";
@@ -143,11 +145,17 @@
             this.possibilidade.Name = "possibilidade";
             this.possibilidade.ReadOnly = true;
             // 
+            // Resultado
+            // 
+            this.Resultado.DataPropertyName = "resultado";
+            this.Resultado.HeaderText = "Resultado";
+            this.Resultado.Name = "Resultado";
+            // 
             // FrmAnalise
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1329, 541);
             this.Controls.Add(this.dgAnalise);
             this.Name = "FrmAnalise";
             this.Text = "FrmAnalise";
@@ -161,15 +169,16 @@
 
         private System.Windows.Forms.DataGridView dgAnalise;
         private System.Windows.Forms.DataGridViewTextBoxColumn papel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pm;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn vl_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pm;
         private System.Windows.Forms.DataGridViewTextBoxColumn valor_cotacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalAtual;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataOperacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn minimoVenda;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataCotacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalCompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalAtual;
         private System.Windows.Forms.DataGridViewTextBoxColumn possibilidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Resultado;
     }
 }

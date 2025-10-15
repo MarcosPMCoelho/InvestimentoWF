@@ -121,5 +121,19 @@ namespace InvestWF
         {
             Application.Exit();
         }
+
+        private void analiseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAnalise frmAnalise = new FrmAnalise();
+            frmAnalise.MdiParent = this;
+            frmAnalise.Show();
+        }
+
+        private void resultadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmResultado frmResultado = new FrmResultado(); 
+            frmResultado.MdiParent = this;
+            frmResultado.Show();
+        }
     }
 }
