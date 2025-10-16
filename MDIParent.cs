@@ -142,5 +142,12 @@ namespace InvestWF
             frmFechamento.MdiParent = this;
             frmFechamento.Show();
         }
+
+        private void cotaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCotacao frmCotacao = new FrmCotacao();
+            frmCotacao.MdiParent = this;
+            frmCotacao.Show();
+        }
     }
 }
