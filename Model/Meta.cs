@@ -7,7 +7,7 @@ namespace InvestWF.Model
     {
         public DateTime data { get; set; }
         public int quantidade { get; set; }
-        public int valor { get; set; }
+        public decimal valor { get; set; }
         public string papel { get; set; }
         public string corretora { get; set; }
     }

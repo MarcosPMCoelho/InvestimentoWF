@@ -28,31 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dbResultado = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dbResultado)).BeginInit();
+            this.dgResultado = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgResultado)).BeginInit();
             this.SuspendLayout();
             // 
-            // dbResultado
+            // dgResultado
             // 
-            this.dbResultado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dbResultado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dbResultado.Location = new System.Drawing.Point(12, 3);
-            this.dbResultado.Name = "dbResultado";
-            this.dbResultado.Size = new System.Drawing.Size(776, 435);
-            this.dbResultado.TabIndex = 0;
+            this.dgResultado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgResultado.Location = new System.Drawing.Point(12, 12);
+            this.dgResultado.Name = "dgResultado";
+            this.dgResultado.Size = new System.Drawing.Size(1287, 400);
+            this.dgResultado.TabIndex = 0;
+            this.dgResultado.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgResultado_CellFormatting);
             // 
             // FrmResultado
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dbResultado);
+            this.ClientSize = new System.Drawing.Size(1379, 424);
+            this.Controls.Add(this.dgResultado);
             this.Name = "FrmResultado";
-            this.Text = "Resultado";
             this.Load += new System.EventHandler(this.FrmResultado_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dbResultado)).EndInit();
+            this.Resize += new System.EventHandler(this.FrmResultado_Resize);
+            ((System.ComponentModel.ISupportInitialize)(this.dgResultado)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -60,5 +56,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dbResultado;
+        private System.Windows.Forms.DataGridView dgResultado;
     }
 }
