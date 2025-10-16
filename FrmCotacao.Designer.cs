@@ -32,9 +32,13 @@
             this.dgCotacao = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnAtualizaOnline = new System.Windows.Forms.Button();
-            this.dbPendente = new System.Windows.Forms.DataGridView();
+            this.dgPendente = new System.Windows.Forms.DataGridView();
+            this.lblCotacaoPendente = new System.Windows.Forms.Label();
+            this.btnNovo = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgCotacao)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbPendente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPendente)).BeginInit();
             this.SuspendLayout();
             // 
             // dgCotacao
@@ -44,7 +48,7 @@
             this.dgCotacao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCotacao.Location = new System.Drawing.Point(12, 12);
             this.dgCotacao.Name = "dgCotacao";
-            this.dgCotacao.Size = new System.Drawing.Size(846, 555);
+            this.dgCotacao.Size = new System.Drawing.Size(846, 517);
             this.dgCotacao.TabIndex = 0;
             // 
             // contextMenuStrip1
@@ -54,7 +58,7 @@
             // 
             // btnAtualizaOnline
             // 
-            this.btnAtualizaOnline.Location = new System.Drawing.Point(12, 573);
+            this.btnAtualizaOnline.Location = new System.Drawing.Point(12, 535);
             this.btnAtualizaOnline.Name = "btnAtualizaOnline";
             this.btnAtualizaOnline.Size = new System.Drawing.Size(135, 23);
             this.btnAtualizaOnline.TabIndex = 2;
@@ -62,30 +66,75 @@
             this.btnAtualizaOnline.UseVisualStyleBackColor = true;
             this.btnAtualizaOnline.Click += new System.EventHandler(this.btnAtualizaOnline_Click);
             // 
-            // dbPendente
+            // dgPendente
             // 
-            this.dbPendente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgPendente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dbPendente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dbPendente.Location = new System.Drawing.Point(14, 606);
-            this.dbPendente.Name = "dbPendente";
-            this.dbPendente.Size = new System.Drawing.Size(843, 175);
-            this.dbPendente.TabIndex = 3;
+            this.dgPendente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgPendente.Location = new System.Drawing.Point(14, 564);
+            this.dgPendente.Name = "dgPendente";
+            this.dgPendente.Size = new System.Drawing.Size(843, 217);
+            this.dgPendente.TabIndex = 3;
+            // 
+            // lblCotacaoPendente
+            // 
+            this.lblCotacaoPendente.AutoSize = true;
+            this.lblCotacaoPendente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCotacaoPendente.Location = new System.Drawing.Point(153, 538);
+            this.lblCotacaoPendente.Name = "lblCotacaoPendente";
+            this.lblCotacaoPendente.Size = new System.Drawing.Size(142, 20);
+            this.lblCotacaoPendente.TabIndex = 4;
+            this.lblCotacaoPendente.Text = "Cotação Pendente";
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Location = new System.Drawing.Point(362, 535);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(128, 23);
+            this.btnNovo.TabIndex = 5;
+            this.btnNovo.Text = "Nova Cotação";
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Location = new System.Drawing.Point(496, 535);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(128, 23);
+            this.btnAlterar.TabIndex = 6;
+            this.btnAlterar.Text = "Alterar Cotação";
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(630, 535);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(128, 23);
+            this.btnExcluir.TabIndex = 7;
+            this.btnExcluir.Text = "Excluir Cotação";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // FrmCotacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(870, 793);
-            this.Controls.Add(this.dbPendente);
+            this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.btnAlterar);
+            this.Controls.Add(this.btnNovo);
+            this.Controls.Add(this.lblCotacaoPendente);
+            this.Controls.Add(this.dgPendente);
             this.Controls.Add(this.btnAtualizaOnline);
             this.Controls.Add(this.dgCotacao);
             this.Name = "FrmCotacao";
             this.Text = "Cotação";
             this.Load += new System.EventHandler(this.FrmCotacao_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgCotacao)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbPendente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPendente)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -94,6 +143,10 @@
         private System.Windows.Forms.DataGridView dgCotacao;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button btnAtualizaOnline;
-        private System.Windows.Forms.DataGridView dbPendente;
+        private System.Windows.Forms.DataGridView dgPendente;
+        private System.Windows.Forms.Label lblCotacaoPendente;
+        private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

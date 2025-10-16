@@ -24,7 +24,7 @@ namespace InvestWF
             dgCotacao.DataSource = listaCotacao;
 
             var listaPendente = cotacao.GetPendente();
-            dbPendente.DataSource = listaPendente;
+            dgPendente.DataSource = listaPendente;
         }
 
         private void btnAtualizaOnline_Click(object sender, EventArgs e)
@@ -35,7 +35,29 @@ namespace InvestWF
 
             Api.Cotacao cotacao = new Api.Cotacao();
             var listaPendente = cotacao.GetPendente();
-            dbPendente.DataSource = listaPendente;
+            dgPendente.DataSource = listaPendente;
+
+            MessageBox.Show("Cotações atualizadas com sucesso!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            FrmCadCotacao frmCadCotacao = new FrmCadCotacao();
+            frmCadCotacao.ShowDialog();
+
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            FrmCadCotacao frmCadCotacao = new FrmCadCotacao();
+            frmCadCotacao.ShowDialog();
+            
+               
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

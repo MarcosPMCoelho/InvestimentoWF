@@ -65,6 +65,12 @@
     <Compile Include="FrmAnalise.Designer.cs">
       <DependentUpon>FrmAnalise.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCadCotacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadCotacao.Designer.cs">
+      <DependentUpon>FrmCadCotacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCotacao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAnalise.resx">
       <DependentUpon>FrmAnalise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadCotacao.resx">
+      <DependentUpon>FrmCadCotacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCotacao.resx">
       <DependentUpon>FrmCotacao.cs</DependentUpon>
