@@ -12,6 +12,9 @@ namespace InvestWF
 {
     public partial class FrmCotacao : Form
     {
+
+        internal int rowCotacao;
+
         public FrmCotacao()
         {
             InitializeComponent();
@@ -20,11 +23,10 @@ namespace InvestWF
         private void FrmCotacao_Load(object sender, EventArgs e)
         {
             Api.Cotacao cotacao = new Api.Cotacao();
-            var listaCotacao = cotacao.GetCotacao();
-            dgCotacao.DataSource = listaCotacao;
+            dgCotacao.DataSource= cotacao.GetCotacao();
+            Atualizar();
 
-            var listaPendente = cotacao.GetPendente();
-            dgPendente.DataSource = listaPendente;
+
         }
 
         private void btnAtualizaOnline_Click(object sender, EventArgs e)
@@ -33,11 +35,20 @@ namespace InvestWF
             var listaCotacao = cotacaoOnline.GetCotacao();
             dgCotacao.DataSource = listaCotacao;
 
+            Atualizar();
+
+            MessageBox.Show("Cotações atualizadas com sucesso!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Atualizar()
+        {
+           
             Api.Cotacao cotacao = new Api.Cotacao();
             var listaPendente = cotacao.GetPendente();
             dgPendente.DataSource = listaPendente;
 
-            MessageBox.Show("Cotações atualizadas com sucesso!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var dataAtualizacao = cotacao.GetAtualizacao();
+            lblAtualizacao.Text = "Última atualização: " + dataAtualizacao.ToString("dd/MM/yyyy HH:mm:ss");
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -49,15 +60,33 @@ namespace InvestWF
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
+            DataGridViewRow row = dgCotacao.Rows[rowCotacao];
+            string id = row.Cells["Id"].Value.ToString();
+            string papel = row.Cells["Papel"].Value.ToString();
+            string valor = row.Cells["Valor"].Value.ToString();
+            string data = row.Cells["Data"].Value.ToString();
             FrmCadCotacao frmCadCotacao = new FrmCadCotacao();
+            frmCadCotacao.Carregar(id, papel, valor, data); 
             frmCadCotacao.ShowDialog();
-            
-               
+                           
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgCotacao_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgCotacao_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >=0)
+            {
+                rowCotacao = e.RowIndex;
+            }
         }
     }
 }

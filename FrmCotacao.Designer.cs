@@ -37,6 +37,7 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.lblAtualizacao = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgCotacao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgPendente)).BeginInit();
             this.SuspendLayout();
@@ -46,10 +47,12 @@
             this.dgCotacao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgCotacao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgCotacao.Location = new System.Drawing.Point(12, 12);
+            this.dgCotacao.Location = new System.Drawing.Point(12, 57);
             this.dgCotacao.Name = "dgCotacao";
-            this.dgCotacao.Size = new System.Drawing.Size(846, 517);
+            this.dgCotacao.Size = new System.Drawing.Size(846, 472);
             this.dgCotacao.TabIndex = 0;
+            this.dgCotacao.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCotacao_CellClick);
+            this.dgCotacao.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCotacao_CellContentClick);
             // 
             // contextMenuStrip1
             // 
@@ -88,7 +91,7 @@
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(362, 535);
+            this.btnNovo.Location = new System.Drawing.Point(313, 535);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(128, 23);
             this.btnNovo.TabIndex = 5;
@@ -98,7 +101,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(496, 535);
+            this.btnAlterar.Location = new System.Drawing.Point(447, 535);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(128, 23);
             this.btnAlterar.TabIndex = 6;
@@ -108,7 +111,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(630, 535);
+            this.btnExcluir.Location = new System.Drawing.Point(581, 535);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(128, 23);
             this.btnExcluir.TabIndex = 7;
@@ -116,11 +119,22 @@
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
+            // lblAtualizacao
+            // 
+            this.lblAtualizacao.AutoSize = true;
+            this.lblAtualizacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAtualizacao.Location = new System.Drawing.Point(12, 19);
+            this.lblAtualizacao.Name = "lblAtualizacao";
+            this.lblAtualizacao.Size = new System.Drawing.Size(44, 20);
+            this.lblAtualizacao.TabIndex = 8;
+            this.lblAtualizacao.Text = "Data";
+            // 
             // FrmCotacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(870, 793);
+            this.Controls.Add(this.lblAtualizacao);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnNovo);
@@ -148,5 +162,6 @@
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.Label lblAtualizacao;
     }
 }
