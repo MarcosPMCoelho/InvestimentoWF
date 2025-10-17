@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Api\Analise.cs" />
     <Compile Include="Api\Config.cs" />
+    <Compile Include="Api\ContaCorrente.cs" />
     <Compile Include="Api\Corretora.cs" />
     <Compile Include="Api\Cotacao.cs" />
     <Compile Include="Api\CotacaoOnline.cs" />
@@ -71,6 +72,12 @@
     </Compile>
     <Compile Include="FrmCadCotacao.Designer.cs">
       <DependentUpon>FrmCadCotacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmContaCorrente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmContaCorrente.Designer.cs">
+      <DependentUpon>FrmContaCorrente.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCotacao.cs">
       <SubType>Form</SubType>
@@ -110,6 +117,7 @@
     </Compile>
     <Compile Include="Model\Analise.cs" />
     <Compile Include="Model\Cadpapel.cs" />
+    <Compile Include="Model\ContaCorrente.cs" />
     <Compile Include="Model\Corretora.cs" />
     <Compile Include="Model\Cotacao.cs" />
     <Compile Include="Model\Extrato.cs" />
@@ -126,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCadCotacao.resx">
       <DependentUpon>FrmCadCotacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmContaCorrente.resx">
+      <DependentUpon>FrmContaCorrente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCotacao.resx">
       <DependentUpon>FrmCotacao.cs</DependentUpon>

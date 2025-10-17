@@ -156,5 +156,12 @@ namespace InvestWF
             frmExtrato.MdiParent = this;
             frmExtrato.Show();
         }
+
+        private void contaCorrenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmContaCorrente frmContaCorrente = new FrmContaCorrente(); 
+            frmContaCorrente.MdiParent = this;
+            frmContaCorrente.Show();
+        }
     }
 }

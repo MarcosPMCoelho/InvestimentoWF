@@ -29,7 +29,7 @@ namespace InvestWF.Api
                 }
                 else
                 {
-                    throw new Exception($"Erro ao obter corretoras: {response.StatusCode}");
+                    throw new Exception($"Erro ao obter resultado: {response.StatusCode}");
                 }
             }
             catch (HttpRequestException ex)

@@ -8,12 +8,11 @@ using System.Windows.Forms;
 
 namespace InvestWF.Api
 {
-    internal class Cotacao
+    internal class ContaCorrente
     {
         private readonly HttpClient httpClient = new HttpClient();
 
-
-        internal List<Model.Cotacao> GetCotacao()
+        internal List<Model.ContaCorrente> GetContaCorrente()
         {
             try
             {
@@ -21,31 +20,96 @@ namespace InvestWF.Api
                 httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", variaveis.Token);
                 httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-                var response = httpClient.GetAsync(Config.ReadConfig("Cotacao")).Result;
+
+                var response = httpClient.GetAsync(Config.ReadConfig("ContaCorrente") + "?corretora=" + variaveis.CorretoraId.ToString()).Result;
                 if (response.IsSuccessStatusCode)
                 {
                     var json = response.Content.ReadAsStringAsync().Result;
-                    var cotacoes = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Model.Cotacao>>(json);
-                    return cotacoes;
+                    var contaCorrentes = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Model.ContaCorrente>>(json);
+                    return contaCorrentes;
                 }
                 else
                 {
-                    throw new Exception($"Erro ao obter cotação: {response.StatusCode}");
+                    throw new Exception($"Erro ao obter conta-corrente: {response.StatusCode}");
                 }
             }
             catch (HttpRequestException ex)
             {
                 MessageBox.Show($"Error calling API: {ex.Message}", "API Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new List<Model.Cotacao>();
+                return new List<Model.ContaCorrente>();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new List<Model.Cotacao>();
+                return new List<Model.ContaCorrente>();
+            }
+
+        }
+
+        internal bool UpdateContaCorrente(Model.ContaCorrente contaCorrente)
+        {
+            try
+            {
+                Business.Variaveis variaveis = Business.Variaveis.Instance;
+                httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", variaveis.Token);
+                httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                var jsonContent = Newtonsoft.Json.JsonConvert.SerializeObject(contaCorrente);
+                var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+                var response = httpClient.PutAsync(Config.ReadConfig("ContaCorrente"), content).Result;
+                return response.IsSuccessStatusCode;
+            }
+            catch (HttpRequestException)
+            {
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
 
-        internal List<Model.Cotacao> GetPendente()
+        internal bool CreateContaCorrente(Model.ContaCorrente contaCorrente)
+        {
+            try
+            {
+                Business.Variaveis variaveis = Business.Variaveis.Instance;
+                httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", variaveis.Token);
+                httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                var jsonContent = Newtonsoft.Json.JsonConvert.SerializeObject(contaCorrente);
+                var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+                var response = httpClient.PostAsync(Config.ReadConfig("ContaCorrente"), content).Result;
+                return response.IsSuccessStatusCode;
+            }
+            catch (HttpRequestException)
+            {
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        internal bool DeleteContaCorrente(int contaCorrenteId)
+        {
+            try
+            {
+                Business.Variaveis variaveis = Business.Variaveis.Instance;
+                httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", variaveis.Token);
+                httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                var response = httpClient.DeleteAsync(Config.ReadConfig("ContaCorrente") + "?ID=" + contaCorrenteId.ToString() + "&corretora=" + variaveis.CorretoraId).Result;
+                return response.IsSuccessStatusCode;
+            }
+            catch (HttpRequestException)
+            {
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        internal Model.ContaCorrente GetContaCorrenteById(int Id)
         {
             try
             {
@@ -53,31 +117,33 @@ namespace InvestWF.Api
                 httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", variaveis.Token);
                 httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-                var response = httpClient.GetAsync(Config.ReadConfig("Cotacao") + "/Pendente").Result;
+
+                var response = httpClient.GetAsync(Config.ReadConfig("ContaCorrente") + "?corretora=" + variaveis.CorretoraId.ToString() + "&ID=" + Id.ToString()).Result;
                 if (response.IsSuccessStatusCode)
                 {
                     var json = response.Content.ReadAsStringAsync().Result;
-                    var cotacoes = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Model.Cotacao>>(json);
-                    return cotacoes;
+                    var contaCorrentes = Newtonsoft.Json.JsonConvert.DeserializeObject<Model.ContaCorrente>(json);
+                    return contaCorrentes;
                 }
                 else
                 {
-                    throw new Exception($"Erro ao obter cotação: {response.StatusCode}");
+                    throw new Exception($"Erro ao obter conta-corrente: {response.StatusCode}");
                 }
             }
             catch (HttpRequestException ex)
             {
                 MessageBox.Show($"Error calling API: {ex.Message}", "API Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new List<Model.Cotacao>();
+                return new Model.ContaCorrente();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new List<Model.Cotacao>();
+                return new Model.ContaCorrente();
             }
+
         }
 
-        internal Model.Cotacao GetById(int Id)
+        internal decimal GetContaCorrenteSaldo()
         {
             try
             {
@@ -85,95 +151,30 @@ namespace InvestWF.Api
                 httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", variaveis.Token);
                 httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-                var response = httpClient.GetAsync(Config.ReadConfig("Cotacao") + "/Id?ID=" + Id.ToString()).Result;
+
+                var response = httpClient.GetAsync(Config.ReadConfig("ContaCorrente") + "/Saldo?corretora=" + variaveis.CorretoraId.ToString()).Result;
                 if (response.IsSuccessStatusCode)
                 {
                     var json = response.Content.ReadAsStringAsync().Result;
-                    var cotacoes = Newtonsoft.Json.JsonConvert.DeserializeObject<Model.Cotacao>(json);
-                    return cotacoes;
+                    var contaCorrentes = Newtonsoft.Json.JsonConvert.DeserializeObject<decimal>(json);
+                    return contaCorrentes;
                 }
                 else
                 {
-                    throw new Exception($"Erro ao obter cotação: {response.StatusCode}");
+                    throw new Exception($"Erro ao obter conta-corrente: {response.StatusCode}");
                 }
             }
             catch (HttpRequestException ex)
             {
                 MessageBox.Show($"Error calling API: {ex.Message}", "API Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new Model.Cotacao();
+                return 0M;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new Model.Cotacao();
+                return 0M;
             }
+
         }
-
-        internal DateTime GetAtualizacao()
-        {
-            try
-            {
-                Business.Variaveis variaveis = Business.Variaveis.Instance;
-                httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", variaveis.Token);
-                httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
-                var response = httpClient.GetAsync(Config.ReadConfig("Cotacao") + "/Atualizacao").Result;
-                if (response.IsSuccessStatusCode)
-                {
-                    var json = response.Content.ReadAsStringAsync().Result;
-                    var atualizacao = Newtonsoft.Json.JsonConvert.DeserializeObject<DateTime>(json);
-                    return atualizacao;
-                }
-                else
-                {
-                    throw new Exception($"Erro ao obter cotação: {response.StatusCode}");
-                }
-            }
-            catch (HttpRequestException ex)
-            {
-                MessageBox.Show($"Error calling API: {ex.Message}", "API Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return DateTime.Now;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return DateTime.Now;
-            }
-        }
-
-        internal void Excluir(string id)
-        {
-            try
-            {
-                Business.Variaveis variaveis = Business.Variaveis.Instance;
-                httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", variaveis.Token);
-                httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
-                var response = httpClient.DeleteAsync(Config.ReadConfig("Cotacao") + "?ID=" + id.ToString()).Result;
-                if (response.IsSuccessStatusCode)
-                {
-                    var json = response.Content.ReadAsStringAsync().Result;
-                }
-                else
-                {
-                    throw new Exception($"Erro ao obter cotação: {response.StatusCode}");
-                }
-            }
-            catch (HttpRequestException ex)
-            {
-                MessageBox.Show($"Error calling API: {ex.Message}", "API Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        //TODO: Implementar Incluir e Atualizar
-        internal void Incluir(Model.Cotacao cotacao)
-        { }
-
-        internal void Atualizar(Model.Cotacao cotacao)
-        { }
     }
 }
