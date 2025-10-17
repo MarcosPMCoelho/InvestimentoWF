@@ -73,7 +73,14 @@ namespace InvestWF
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Confirma a exclusão da cotação?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                DataGridViewRow row = dgCotacao.Rows[rowCotacao];
+                string id = row.Cells["Id"].Value.ToString();
+                Api.Cotacao cotacao = new Api.Cotacao();
+                cotacao.Excluir(id);
+                FrmCotacao_Load(sender, e);
+            }
         }
 
         private void dgCotacao_CellContentClick(object sender, DataGridViewCellEventArgs e)

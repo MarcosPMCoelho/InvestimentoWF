@@ -40,14 +40,30 @@ namespace InvestWF
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            Api.Cotacao cotacao = new Api.Cotacao();
+
             if (txtId.Text.Trim() == "")
             {
-                //novo
+                
+                cotacao.Incluir(new Model.Cotacao()
+                {
+                    papel = txtPapel.Text.Trim(),
+                    valor = Convert.ToDecimal(txtValor.Text.Trim()),
+                    data = Convert.ToDateTime(txtData.Text.Trim())
+                });
             }
             else
             {
-                //atualiza
+                cotacao.Atualizar(new Model.Cotacao()
+                {
+                    id = Convert.ToInt32(txtId.Text.Trim()),
+                    papel = txtPapel.Text.Trim(),
+                    valor = Convert.ToDecimal(txtValor.Text.Trim()),
+                    data = Convert.ToDateTime(txtData.Text.Trim())
+                });
             }
+
+            this.Close();
         }
     }
 }

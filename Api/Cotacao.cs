@@ -140,5 +140,39 @@ namespace InvestWF.Api
                 return DateTime.Now;
             }
         }
+
+        internal void Excluir(string id)
+        {
+            try
+            {
+                Business.Variaveis variaveis = Business.Variaveis.Instance;
+                httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", variaveis.Token);
+                httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+                var response = httpClient.DeleteAsync(Config.ReadConfig("Cotacao") + "?ID=" + id.ToString()).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = response.Content.ReadAsStringAsync().Result;
+                }
+                else
+                {
+                    throw new Exception($"Erro ao obter corretoras: {response.StatusCode}");
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                MessageBox.Show($"Error calling API: {ex.Message}", "API Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        internal void Incluir(Model.Cotacao cotacao)
+        { }
+
+        internal void Atualizar(Model.Cotacao cotacao)
+        { }
     }
 }
