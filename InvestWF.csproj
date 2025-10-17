@@ -55,6 +55,7 @@
     <Compile Include="Api\Corretora.cs" />
     <Compile Include="Api\Cotacao.cs" />
     <Compile Include="Api\CotacaoOnline.cs" />
+    <Compile Include="Api\Extrato.cs" />
     <Compile Include="Api\Fechamento.cs" />
     <Compile Include="Api\Resultado.cs" />
     <Compile Include="Api\Seguranca.cs" />
@@ -76,6 +77,12 @@
     </Compile>
     <Compile Include="FrmCotacao.Designer.cs">
       <DependentUpon>FrmCotacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmExtrato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmExtrato.Designer.cs">
+      <DependentUpon>FrmExtrato.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmFechamento.cs">
       <SubType>Form</SubType>
@@ -105,6 +112,7 @@
     <Compile Include="Model\Cadpapel.cs" />
     <Compile Include="Model\Corretora.cs" />
     <Compile Include="Model\Cotacao.cs" />
+    <Compile Include="Model\Extrato.cs" />
     <Compile Include="Model\Fechamento.cs" />
     <Compile Include="Model\Meta.cs" />
     <Compile Include="Model\Resultado.cs" />
@@ -121,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCotacao.resx">
       <DependentUpon>FrmCotacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmExtrato.resx">
+      <DependentUpon>FrmExtrato.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFechamento.resx">
       <DependentUpon>FrmFechamento.cs</DependentUpon>

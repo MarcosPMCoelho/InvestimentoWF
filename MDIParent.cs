@@ -149,5 +149,12 @@ namespace InvestWF
             frmCotacao.MdiParent = this;
             frmCotacao.Show();
         }
+
+        private void extratoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmExtrato frmExtrato = new FrmExtrato();
+            frmExtrato.MdiParent = this;
+            frmExtrato.Show();
+        }
     }
 }
