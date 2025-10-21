@@ -60,12 +60,20 @@
     <Compile Include="Api\Fechamento.cs" />
     <Compile Include="Api\Resultado.cs" />
     <Compile Include="Api\Seguranca.cs" />
+    <Compile Include="Business\EnumTipoMov.cs" />
+    <Compile Include="Business\ComboBoxItem.cs" />
     <Compile Include="Business\Variaveis.cs" />
     <Compile Include="FrmAnalise.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmAnalise.Designer.cs">
       <DependentUpon>FrmAnalise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCadContaCorrente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadContaCorrente.Designer.cs">
+      <DependentUpon>FrmCadContaCorrente.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCadCotacao.cs">
       <SubType>Form</SubType>
@@ -131,6 +139,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAnalise.resx">
       <DependentUpon>FrmAnalise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadContaCorrente.resx">
+      <DependentUpon>FrmCadContaCorrente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCadCotacao.resx">
       <DependentUpon>FrmCadCotacao.cs</DependentUpon>

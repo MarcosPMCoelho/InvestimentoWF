@@ -46,7 +46,7 @@ namespace InvestWF.Api
 
         }
 
-        internal bool UpdateContaCorrente(Model.ContaCorrente contaCorrente)
+        internal bool Atualizar(Model.ContaCorrente contaCorrente)
         {
             try
             {
@@ -68,7 +68,7 @@ namespace InvestWF.Api
             }
         }
 
-        internal bool CreateContaCorrente(Model.ContaCorrente contaCorrente)
+        internal bool Incluir(Model.ContaCorrente contaCorrente)
         {
             try
             {
